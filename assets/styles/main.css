@@ -1,0 +1,287 @@
+@import url('./_variables.css');
+@import url('./_animation.css');
+
+@media screen and (max-width: 540px) {
+  .title-section {
+    margin-bottom: 8px !important;
+    font-size: 14px !important;
+    line-height: 21px !important;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 76%;
+    color: var(--black);
+  }
+
+  .see-more {
+    font-size: 12px !important;
+    line-height: 18px !important;
+  }
+
+  .t-section {
+    padding: 8px 0 !important;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: var(--font-default);
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--black);
+  font-family: Roboto, sans-serif;
+}
+
+a {
+  color: var(--red);
+}
+
+.t-section {
+  padding: 16px 0;
+}
+
+.title-section {
+  margin-bottom: 8px;
+  font-size: 24px;
+  line-height: 36px;
+  color: var(--black);
+}
+
+.see-more {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.device-state {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 4px 8px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: right;
+  z-index: 99;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Roboto, sans-serif;
+  color: var(--black);
+  font-weight: 600;
+}
+
+h1 { font-size: 36px }
+h2 { font-size: 30px }
+h3 { font-size: 24px }
+h4 { font-size: 18px }
+h5 { font-size: 14px }
+h6 { font-size: 12px }
+p { font-size: 14px }
+
+.fs-10px {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.fs-12px {
+  font-size: 12px;
+  line-height: 18px;
+}
+.fs-14px {
+  font-size: 14px;
+  line-height: 21px;
+}
+.fs-18px {
+  font-size: 18px;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+
+.mt-4px {
+  margin-top: 4px;
+}
+.mt-8px {
+  margin-top: 8px;
+}
+.mt-16px {
+  margin-top: 16px;
+}
+.mt-32px {
+  margin-top: 32px;
+}
+.mt-40px {
+  margin-top: 40px;
+}
+
+.mb-4px {
+  margin-bottom: 4px;
+}
+.mb-8px {
+  margin-bottom: 8px;
+}
+.mb-16px {
+  margin-bottom: 16px;
+}
+
+.ml-4px {
+  margin-left: 4px;
+}
+.ml-8px {
+  margin-left: 8px;
+}
+.ml-16px {
+  margin-left: 16px;
+}
+
+.mr-4px {
+  margin-right: 4px;
+}
+.mr-8px {
+  margin-right: 8px;
+}
+.mr-16px {
+  margin-right: 16px;
+}
+.mr-24px {
+  margin-right: 24px;
+}
+.mr-32px {
+   margin-right: 32px;
+ }
+
+.my-8px {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.my-16px {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.my-32px {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.mx-4px {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.mx-8px {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.mx-16px {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.mx-32px {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.py-16px {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.py-32px {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.brl-8px {
+  border-radius: 8px 0 0 8px;
+}
+
+.brr-8px {
+  border-radius: 0 8px 8px 0;
+}
+
+.br-8px {
+  border-radius: 8px;
+}
+
+/* Reusable class */
+
+
+/* Text format */
+.text--center { text-align: center }
+.text--semi-bold { font-weight: 600 }
+.text--bold { font-weight: bold }
+.text--info { color: var(--blue) }
+
+.show-xs { display: none !important }
+.show-xs.d-flex { display: none !important }
+
+/* Breakpoints */
+
+@media only screen and (max-width: 540px) {
+  .xs-hidden { display: none !important }
+  .show-xs { display: block !important }
+  .show-xs.d-flex { display: flex !important }
+  .xs-hidden.d-flex { display: none !important }
+}
+
+.modal-backdrop {
+  background-color: #000000c9;
+}
+
+@media (min-width: 576px){
+  .modal-dialog {
+    max-width: 640px;
+  }
+}
+
+div#telunjuk-modal {
+  padding-left: 0 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  #telunjuk-modal > .modal-dialog {
+    position: relative;
+    width: auto;
+    pointer-events: none;
+    top: 100px;
+    margin: 0;
+  }
+}
+
+
+@media screen and (max-width: 540px) {
+  ul#telunjuk-tabs__BV_tab_controls_ {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  ul#telunjuk-tabs__BV_tab_controls_ > li{
+    white-space: nowrap;
+  }
+}
+
+.nav-tabs .nav-link.active {
+  border-color: transparent;
+  border-bottom: 1px solid #dee2e6;
+}
+
+

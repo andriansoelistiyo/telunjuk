@@ -1,0 +1,127 @@
+/**
+ * Media query mixins
+ * to compile media queries for responsive layouts
+ */
+
+/// media query size
+/// @access private
+/// @type map
+$media : (
+  xs: 480px,
+  sm: 600px,
+  md: 960px,
+  lg: 1264px,
+  xl: 1904px,
+);
+
+/// function to check media and fill it
+/// @access private
+/// @param { Number } $val
+/// @return { Number } - breakpoint
+///
+@function fillMedia($val){
+  @if type-of($val) == number {
+    @return $val;
+  } @else if type-of($val) == string {
+    @if map-has-key($media, $val) {
+      @return map-get($media, $val);
+    } @else {
+      @error "type of parameter must xs, sm, md, lg";
+    }
+  } @else {
+    @error "type of parameter must be a number or media breakpoint";
+  }
+}
+
+/**
+ * respond-to
+ * to compile responsive layouts at the min or max specified width sceens
+ * e.g.
+ *  respond-to(600px){ content }
+ *  is compile to:
+ *  @media screen and (max-width: 600px) { content }
+ *
+ * type of parameters:
+ *  number: 600px etc.
+ *  string: "screen and (max-width: 600px)"
+ *  list: min 600px or max 1024px
+ *  map: (min: 600px, max: 1024px)
+ */
+@mixin respond-to($media) {
+  @if type-of($media) == map{
+    $min: null;
+    $max: null;
+    @if length($media) == 2 {
+      @each $key, $val in $media {
+        @if $key == min {
+          $min: $val;
+        }@else if $key == max {
+          $max: $val;
+        }
+      }
+      @media screen and (min-width: $min) and (max-width: $max){ @content };
+    } @else if length($media) == 1 {
+      $key: nth(nth($media, 1), 1);
+      $val: nth(nth($media, 1), 2);
+      @media screen and (#{$key}-width: $val) { @content };
+    }
+
+  } @else if type-of($media) == list {
+    $key: nth($media, 1);
+    $val: nth($media, 2);
+    @media screen and (#{$key}-width: $val) { @content };
+  } @else if type-of($media) == number {
+    @media screen and (max-width: $media) { @content };
+  } @else if type-of($media) == string {
+    @media #{$media} { @content };
+  }
+}
+
+
+@mixin hidden-bellow($width){
+  @media screen and (max-width: "#{$width}px") {
+    display: none !important;
+  }
+}
+
+/// respond between
+/// will be compile to media min-width and max-width
+/// @param { Number, String } $min - min-width - String allowed is xs, sm, md, lg, xl
+/// @param { Number, String } $max - max-width - String allowed is xs, sm, md, lg, xl
+/// @example scss
+/// .foo {
+///   @include respond-between(sm, md){
+///       do something
+///   }
+/// }
+@mixin respond-between($min, $max){
+  $lower: fillMedia($min);
+  $upper: fillMedia($max);
+  @media screen and (min-width: $lower) and (max-width: $upper) { @content };
+}
+
+// respond above
+// will be compile to media min-width
+/// @param { Number, String } $breakpoint - min-width - String allowed is xs, sm, md, lg, xl
+/// @example scss
+/// .foo {
+///   @include respond-above(600px){
+///       do something
+///   }
+/// }
+@mixin respond-above($breakpoint){
+  @media screen and (min-width: fillMedia($breakpoint)) { @content };
+}
+
+// respond bellow
+// will be compile to media max-width
+/// @param { Number, String } $breakpoint - max-width - String allowed is xs, sm, md, lg, xl
+/// @example scss
+/// .foo {
+///   @include respond-bellow(600px){
+///       do something
+///   }
+/// }
+@mixin respond-bellow($breakpoint){
+  @media screen and (max-width: fillMedia($breakpoint)) { @content };
+}

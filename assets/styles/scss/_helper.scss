@@ -1,0 +1,42 @@
+@import "breakpoints";
+
+$line-colors: ("default": #ced4da, "red": #dc3545);
+
+@each $name, $line in $line-colors {
+  .full-line-#{$name} {
+    border: 1px solid $line;
+  }
+}
+
+
+@include respond-bellow(540px) {
+  .flex-mobile {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+}
+
+$margins: 4px;
+@each $margin in $margins {
+  .ml-#{$margin}{
+    margin-left: $margin;
+  }
+
+  .mr-#{$margin}{
+    margin-right: $margin;
+  }
+}
+
+$text-colors: ("primary-red": #be1e2d, "light-red": #feecf0);
+
+@each $name, $text  in $text-colors{
+  .text-#{$name}{
+    color: $text;
+  }
+}
+
+
+
+

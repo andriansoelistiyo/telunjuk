@@ -1,0 +1,25 @@
+:root {
+  /* Primary color */
+  --red: #be1e2d;
+  --light-red:#feecf0;
+  --black: #25282b;
+  --white: #fff;
+
+  /* Secondary color */
+  --orange: #f25e1d;
+  --yellow: #ffdd57;
+  --blue: #1da1f2;
+  --light-blue: #eef3fc;
+  --green: #42b549;
+  --light-green: #effaf3;
+  --gray: #707070;
+  --light-gray: #f3f4f5;
+
+  /* Fonts */
+  --font-default: Roboto, sans-serif;
+
+  /* Commons */
+  --shadow-default: 0 1px 6px 0 rgba(49, 53, 59, 0.12);
+  --border-radius-default: 4px;
+  --border-radius-big: 8px;
+}
